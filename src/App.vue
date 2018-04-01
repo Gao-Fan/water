@@ -1,23 +1,31 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+  <div>
+    <input type="text" v-model='inputValue' @keyup.enter="handleEnterValue">
+    <ul>
+      <li v-for="(item, index) of list" :key='index'>{{item}}</li>
+    </ul>
+    <router-view />
   </div>
+
 </template>
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  data () {
+    return {
+      inputValue: '',
+      list: []
+    }
+  },
+  methods: {
+    handleEnterValue (e) {
+      this.list.push(e.target.value)
+    }
+  }
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>

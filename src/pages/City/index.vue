@@ -1,15 +1,14 @@
 <template>
   <div>
-    hello world
+    City
   </div>
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld'
+  name: 'City'
 }
 </script>
-
 
 <style scoped>
 
