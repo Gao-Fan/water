@@ -1,7 +1,5 @@
 <template>
-  <div>
-    City
-  </div>
+  <div>City</div>
 </template>
 
 <script>
