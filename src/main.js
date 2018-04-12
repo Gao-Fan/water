@@ -3,11 +3,11 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import 'assets/css/reset.css'
-import 'assets/css/iconfont/iconfont.css'
+import FastClick from 'fastclick'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/dist/css/swiper.css'
-import FastClick from 'fastclick'
+import 'assets/css/reset.css'
+import 'assets/css/iconfont/iconfont.css'
 
 Vue.config.productionTip = false
 FastClick.attach(document.body)

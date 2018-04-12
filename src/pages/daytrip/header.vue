@@ -4,19 +4,14 @@
     <div class="search">
       <span class='iconfont search-icon'>&#xe6ac;</span>请输入内容
     </div>
-    <div class="city" @click="handleCutyClick">
-      哈萨克斯坦
+    <div class="city">
+      北京
     </div>
   </div>
 </template>
 <script>
 export default {
-  name: 'index-header',
-  methods: {
-    handleCutyClick () {
-      this.$router.push('/daytrip?name=dall')
-    }
-  }
+  name: 'index-header'
 }
 </script>
 <style lang='stylus' scoped>
@@ -46,10 +41,9 @@ export default {
         top: .02rem
         padding-right: .04rem
     .city
-      position: relative
       padding-right: .6rem
-      color: #fff
       font-size: .3rem
+      position: relative
       &:before
         position: absolute
         content: '\0020'

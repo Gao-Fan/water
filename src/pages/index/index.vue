@@ -40,7 +40,6 @@ export default {
     },
     handleGetDataErr () {
       console.log('error')
-      console.log('error')
     }
   }
 }
