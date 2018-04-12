@@ -1,10 +1,10 @@
 <template>
-	<div>
-	  <index-header></index-header>
-	  <index-swiper :list="swiperInfo"></index-swiper>
-	  <index-icons :list="iconsInfo"></index-icons>
+  <div>
+    <index-header></index-header>
+    <index-swiper :list="swiperInfo"></index-swiper>
+    <index-icons :list="iconsInfo"></index-icons>
     <div>123</div>
-	</div>
+  </div>
 </template>
 <script>
 import IndexHeader from './header'
@@ -14,33 +14,34 @@ import axios from 'axios'
 export default {
   name: 'Index',
   components: {
-  	IndexHeader,
-  	IndexSwiper,
+    IndexHeader,
+    IndexSwiper,
     IndexIcons
   },
   data () {
     return {
-      swiperInfo:[],
+      swiperInfo: [],
       iconsInfo: []
     }
   },
   created () {
-  	this.getIndexData();
+    this.getIndexData()
   },
   methods: {
-  	getIndexData (){
-  		axios.get('/api/index.json')
-		   .then(this.handleGetDataSucc.bind(this))
-		   .catch(this.handleGetDataErr.bind(this))
-  	},
-  	handleGetDataSucc (res) {
-  		const data = res.data.data
+    getIndexData () {
+      axios.get('/api/index.json')
+        .then(this.handleGetDataSucc.bind(this))
+        .catch(this.handleGetDataErr.bind(this))
+    },
+    handleGetDataSucc (res) {
+      const data = res.data.data
       this.swiperInfo = data.swiperList
       this.iconsInfo = data.iconList
-  	},
-  	handleGetDataErr () {
-  		console.log('error')
-  	} 
+    },
+    handleGetDataErr () {
+      console.log('error')
+      console.log('error')
+    }
   }
 }
 </script>

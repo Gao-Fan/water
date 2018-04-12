@@ -2,7 +2,7 @@
     <div class="slide-container">
       <swiper :options="swiperOption">
         <swiper-slide v-for="item of list" :key="item.id">
-          <div class="slide-container">       
+          <div class="slide-container">
             <img class="slide-img" :src="item.imgUrl" alt="">
           </div>
         </swiper-slide>
@@ -16,13 +16,13 @@ export default {
   props: {
     list: Array
   },
-  data() {
+  data () {
     return {
       swiperOption: {
-          loop: true,
-          autoplay : 3000,
-          autoplayDisableOnInteraction : false,
-          pagination: '.swiper-pagination',
+        loop: true,
+        autoplay: 3000,
+        autoplayDisableOnInteraction: false,
+        pagination: '.swiper-pagination'
       }
     }
   }
