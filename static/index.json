@@ -1,6 +1,7 @@
 {
 	"ret": true,
 	"data": {
+    "city": "火星",
 		"swiperList" :[{
       "id": "1001",
       "imgUrl": "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=4205239905,2630274881&fm=27&gp=0.jpg",

@@ -5,16 +5,17 @@
       <span class='iconfont search-icon'>&#xe6ac;</span>请输入内容
     </div>
     <div class="city" @click="handleCutyClick">
-      哈萨克斯坦
+      {{city}}
     </div>
   </div>
 </template>
 <script>
 export default {
   name: 'index-header',
+  props: ['city'],
   methods: {
     handleCutyClick () {
-      this.$router.push('/daytrip?name=dall')
+      this.$router.push('/city')
     }
   }
 }
@@ -31,6 +32,7 @@ export default {
       text-align: center
       font-size: .4rem
       font-weight: bold
+      color: #fff
     .search
       flex: 1
       height: .6rem
