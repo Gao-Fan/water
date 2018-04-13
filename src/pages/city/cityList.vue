@@ -3,7 +3,7 @@
     <div class="location-containner">
       <h6 class="area-title">您的位置</h6>
       <div class="location">
-        <div class="location-city citySelect" ref="selectCity">{{city}}</div>
+        <div class="location-city citySelect" ref="selectCity">{{$store.state.city}}</div>
       </div>
     </div>
     <div class="hotCity-containner">
@@ -37,12 +37,11 @@ export default {
   name: 'cityList',
   props: {
     hotCityInfo: Array,
-    domesticCityList: Array,
-    city: String
+    domesticCityList: Array
   },
   methods: {
     handleClick (e) {
-      this.$bus.$emit('change', e.target.innerHTML)
+      this.$store.commit('changeCity', e.target.innerHTML)
       this.$router.go(-1)
     }
   }

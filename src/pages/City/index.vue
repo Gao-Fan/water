@@ -5,7 +5,6 @@
     <city-list
       :hotCityInfo="hotCityInfo"
       :domesticCityList="domesticCityList"
-      :city="city"
     ></city-List>
     <div>City</div>
   </div>
@@ -27,8 +26,7 @@ export default {
       hotCityInfo: [],
       domesticCityList: [],
       showCity: [],
-      show: false,
-      city: ''
+      show: false
     }
   },
   created () {
@@ -36,7 +34,7 @@ export default {
   },
   methods: {
     getCitysData () {
-      const city = localStorage.city ? localStorage.city : ''
+      const city = this.$store.state.city
       axios.get('/api/citylist.json?city=' + city)
         .then(this.handleGetDataSucc.bind(this))
         .catch(this.handleGetDataErr.bind(this))
@@ -45,9 +43,6 @@ export default {
       const data = res.data.data
       this.hotCityInfo = data.hotcity
       this.domesticCityList = data.china
-      this.city = data.city
-      this.$bus.$emit('change', data.city)
-      localStorage.city = data.city
     },
     handleGetDataErr () {
       alert('err')

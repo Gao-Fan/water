@@ -5,14 +5,13 @@
       <span class='iconfont search-icon'>&#xe6ac;</span>请输入内容
     </div>
     <div class="city" @click="handleCutyClick">
-      {{city}}
+      {{$store.getters.doubleCity}}
     </div>
   </div>
 </template>
 <script>
 export default {
   name: 'index-header',
-  props: ['city'],
   methods: {
     handleCutyClick () {
       this.$router.push('/city')

@@ -1,6 +1,6 @@
 <template>
     <div class="slide-container">
-      <swiper :options="swiperOption">
+      <swiper :options="swiperOption" v-if="list.length">
         <swiper-slide v-for="item of list" :key="item.id">
           <div class="slide-container">
             <img class="slide-img" :src="item.imgUrl" alt="">
