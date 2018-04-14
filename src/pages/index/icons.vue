@@ -22,7 +22,7 @@ export default {
   data () {
     return {
       swiperOption: {
-        ion: '.swiper-pagination'
+        pagination: '.swiper-pagination'
       }
     }
   },

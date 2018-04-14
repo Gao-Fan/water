@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Index from '@/pages/index'
 import City from '@/pages/city'
 import Daytrip from '@/pages/daytrip'
+import Test from '@/pages/test.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -20,6 +21,10 @@ export default new Router({
       path: '/city/',
       name: 'City',
       component: City
+    }, {
+      path: '/test/',
+      name: 'Test',
+      component: Test
     }
   ]
 })

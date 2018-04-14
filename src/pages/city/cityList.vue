@@ -33,15 +33,20 @@
   </div>
 </template>
 <script>
+import { mapState, mapMutations } from 'vuex'
 export default {
   name: 'cityList',
   props: {
     hotCityInfo: Array,
     domesticCityList: Array
   },
+  computed: {
+    ...mapState(['city'])
+  },
   methods: {
+    ...mapMutations(['changeCity']),
     handleClick (e) {
-      this.$store.commit('changeCity', e.target.innerHTML)
+      this.changeCity(e.target.innerHTML)
       this.$router.go(-1)
     }
   }

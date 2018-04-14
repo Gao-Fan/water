@@ -1,9 +1,11 @@
 <template>
   <div>
-    <index-header></index-header>
+    <index-header ref="header"></index-header>
     <index-swiper :list="swiperInfo"></index-swiper>
     <index-icons :list="iconsInfo"></index-icons>
     <index-sights></index-sights>
+    <input type="text" ref="inputIn"> 
+    <button @click="focus">获取焦点</button>
   </div>
 </template>
 <script>
@@ -12,6 +14,7 @@ import IndexSwiper from './swiper'
 import IndexIcons from './icons'
 import IndexSights from './sights'
 import axios from 'axios'
+import { mapState, mapActions } from 'vuex'
 export default {
   name: 'Index',
   components: {
@@ -26,9 +29,17 @@ export default {
       iconsInfo: []
     }
   },
+  computed: {
+    ...mapState({
+      city: 'city'
+    })
+  },
   methods: {
+    ...mapActions({
+      delayCity: 'changeCityDelayFiveSeconds'
+    }),
     getIndexData () {
-      axios.get('/api/index.json?city=' + this.$store.state.city)
+      axios.get('/api/index.json?city=' + this.city)
         .then(this.handleGetDataSucc.bind(this))
         .catch(this.handleGetDataErr.bind(this))
     },
@@ -36,22 +47,25 @@ export default {
       const data = res.data.data
       this.swiperInfo = data.swiperList
       this.iconsInfo = data.iconList
-      if (!this.$store.state.city) {
-        this.$store.dispatch('changeCityDelayFiveSeconds', data.city)
-        // setTimeout( () => {
-        //   this.$store.commit('changeCity', data.city)
-        // })        
+      if (!this.city) {
+        this.delayCity(data.city)
       }
     },
-    handleGetDataErr () {
-      console.log('error')
+    handleGetDataErr (err) {
+      console.log(err)
+    },
+    focus () {
+      this.$refs.inputIn.focus()
     }
   },
   created () {
     this.getIndexData()
   },
+  mounted () {
+    this.$refs['header'].sayHello()
+  },
   watch: {
-    "$store.state.city" () {
+    city () {
       this.getIndexData()
     }
   }

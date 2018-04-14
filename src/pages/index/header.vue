@@ -1,26 +1,36 @@
 <template>
-  <div class='header'>
+  <div class='header' ref='head'>
     <div class='back iconfont'>&#xe697;</div>
     <div class="search">
       <span class='iconfont search-icon'>&#xe6ac;</span>请输入内容
     </div>
     <div class="city" @click="handleCutyClick">
-      {{$store.getters.doubleCity}}
+      {{doubleCity}}
     </div>
   </div>
 </template>
 <script>
+import { mapGetters } from 'vuex'
 export default {
   name: 'index-header',
+  computed: {
+    ...mapGetters(['doubleCity'])
+  },
   methods: {
     handleCutyClick () {
-      this.$router.push('/city')
+      this.$refs.head.style.background = 'red'
+      //this.$router.push('/city')
+    },
+    sayHello () {
+      alert('hello')
     }
   }
 }
 </script>
 <style lang='stylus' scoped>
   @import "../../assets/stylus/varibles.styl"
+  .redHeader
+    background: red
   .header
     display: flex
     height: .88rem
